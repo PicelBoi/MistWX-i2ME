@@ -68,10 +68,10 @@ public class mosquitoIndex12Hour {
 }
 
 [XmlRoot(ElementName="daypartForecastResponse")]
-public class AchesPainResponse { 
+public class MosquitoActivityResponse { 
 
 	[XmlElement(ElementName="metadata")] 
-	public AchesPainMetadata Metadata { get; set; } 
+	public MosquitoActivityMetadata Metadata { get; set; } 
 
 	[XmlElement(ElementName="mosquitoIndex12hour")] 
 	public mosquitoIndex12Hour mosquitoIndex12hour { get; set; } 
