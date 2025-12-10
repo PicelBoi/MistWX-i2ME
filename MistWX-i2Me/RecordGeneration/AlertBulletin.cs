@@ -168,7 +168,10 @@ public class AlertBulletin : I2Record
         {
             Log.Error($"Vocal check failed for key {vocalCheck}.");
             Log.Debug(ex.Message);
-
+            if (!string.IsNullOrEmpty(ex.StackTrace))
+            {
+                Log.Debug(ex.StackTrace);
+            }
             return null;
         }
     }

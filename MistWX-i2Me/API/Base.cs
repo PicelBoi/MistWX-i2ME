@@ -56,6 +56,14 @@ public class Base
         }
         catch (Exception ex)
         {
+            
+            Log.Debug($"Failed to Download Record for {url}");
+            Log.Debug(ex.Message);
+            // Print stacktrace to the debug console if applicable
+            if (!string.IsNullOrEmpty(ex.StackTrace))
+            {
+                Log.Debug(ex.StackTrace);
+            }
             return String.Empty;
         }
 
@@ -208,7 +216,10 @@ public class Base
             catch (InvalidOperationException ex)
             {
                 Log.Debug(ex.Message);
-                Log.Debug(ex.StackTrace);
+                if (!string.IsNullOrEmpty(ex.StackTrace))
+                {
+                    Log.Debug(ex.StackTrace);
+                }
                 Log.Warning($"Location {location} has no data for {RecordName}, skipping..");
             }
         }

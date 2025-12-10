@@ -18,7 +18,7 @@ public class TimedTasks
     /// <param name="sender">UdpSender, prefer priority port</param>
     public static async Task CheckForAlerts(string[] locations, UdpSender sender, int checkInterval)
     {
-        if (Config.config.UseNationalLocations || !Config.config.GetAlerts)
+        if (Config.config.LocationConfig.UseNationalLocations || !Config.config.GetAlerts)
         {
             Log.Debug("Disabling alert generation.");
             return;
@@ -50,7 +50,7 @@ public class TimedTasks
     /// </summary>
     public static async Task ClearExpiredAlerts()
     {
-        if (Config.config.UseNationalLocations || !Config.config.GetAlerts)
+        if (Config.config.LocationConfig.UseNationalLocations || !Config.config.GetAlerts)
         {
             return;
         }
@@ -89,7 +89,7 @@ public class TimedTasks
             watch.Restart();
             Config.DataEndpointConfig dataConfig = Config.config.DataConfig;
             
-            Log.Info("Running hourly record collection");
+            Log.Info("Running scheduled record collection");
             
             // Implements suggestion #3 in the issue tracker.
             
