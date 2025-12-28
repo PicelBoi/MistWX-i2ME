@@ -354,7 +354,8 @@ public class AlertBulletin : I2Record
         { "WA", "Washington" },
         { "WV", "West Virginia" },
         { "WI", "Wisconsin" },
-        { "WY", "Wyoming" }
+        { "WY", "Wyoming" },
+        { "INTL", "International"}
     };
 
 
