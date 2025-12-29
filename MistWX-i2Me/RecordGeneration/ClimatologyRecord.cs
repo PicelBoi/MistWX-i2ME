@@ -48,7 +48,6 @@ public class ClimatologyRecord : I2Record
         }
         
         recordScript += "</Data>";
-        recordScript.Replace('<?xml version="1.0" encoding="utf-16"?>', String.Empty);
         
         await File.WriteAllTextAsync(recordPath, ValidateXml(recordScript));
 
