@@ -153,6 +153,16 @@ public class Base
             url = url.Replace("{curDatePlusFive}", DateTime.Now.AddDays(5).ToString("yyyyMMdd"));
         }
 
+        if (url.Contains("{day}"))
+        {
+            url = url.Replace("{day}", DateTime.Now.Day.ToString());
+        }
+
+        if (url.Contains("{month}"))
+        {
+            url = url.Replace("{day}", DateTime.Now.Month.ToString());
+        }
+
         return url;
     }
 

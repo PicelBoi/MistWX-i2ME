@@ -1,0 +1,18 @@
+using MistWX_i2Me.Schema.ibm;
+
+namespace MistWX_i2Me.API.Products;
+
+public class Almanac1DayProduct : Base
+{
+    public Almanac1DayProduct()
+    {
+        RecordName = "Almanac1Day";
+        DataUrl =
+            "https://api.weather.com/v3/wx/almanac/daily/1day?geocode={geocode}&language=en-US&apiKey={apiKey}&units=e&day={day}&month={month}";
+    }
+
+    public async Task<List<GenericResponse<Almanac1DayResponse>>> Populate(string[] locations)
+    {
+        return await GetData<Almanac1DayResponse>(locations);
+    }
+}

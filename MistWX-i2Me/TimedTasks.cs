@@ -207,6 +207,14 @@ public class TimedTasks
                 sender.SendFile(wnsRecord, "storeData(QGROUP=__TropicalAdvisory__,Feed=TropicalAdvisory)");
             }
 
+            if (dataConfig.ClimatologyRecord)
+            {
+                Log.Info($"Building Climatology Record I2 record for {locations.Length} locations..");
+                List<GenericResponse<Almanac1DayResponse>> wns = await new Almanac1DayProduct().Populate(locations);
+                string wnsRecord = await new ClimatologyRecord().MakeRecord(wns);
+                sender.SendFile(wnsRecord, "storeData(QGROUP=__ClimatologyRecord__,Feed=ClimatologyRecord)");
+            }
+
             string nextTimestamp = DateTime.Now.AddSeconds(generationInterval).ToString("h:mm tt");
             
             watch.Stop();
