@@ -84,7 +84,7 @@ public class ClimatologyRecord : I2Record
 
             recordScript += 
                 $"<ClimatologyRecord>" +
-                $"<Key>{result.Location.cliStn}</Key>{xw.ToString()}</ClimatologyRecord>";
+                $"<Key>{result.Location.cliStn}</Key>{sw.ToString()}</ClimatologyRecord>";
         }
         
         recordScript += "</Data>";
