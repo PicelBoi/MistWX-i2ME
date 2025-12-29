@@ -63,7 +63,7 @@ public class ClimatologyRecord : I2Record
             {
                 if (result.ParsedData.almanacRecordYearMin.First() != null)
                 {
-                    cliRec.RecLowYear = result.ParsedData.almanacRecordYearMin.First();
+                    cliRec.RecLowYear = Convert.ToInt32(result.ParsedData.almanacRecordYearMin.First());
                 }
             }
             
