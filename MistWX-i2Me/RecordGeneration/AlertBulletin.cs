@@ -138,7 +138,6 @@ public class AlertBulletin : I2Record
 
         { "HW_A", "HE029" },
         { "BW_Y", "HE029" }, // USA (not defined)
-        { "WI_Y", "HE029" }, // USA (not defined)
         { "TWA_S", "HE029" }, // Europe
         { "TWA_A", "HE029" }, // Europe
 
