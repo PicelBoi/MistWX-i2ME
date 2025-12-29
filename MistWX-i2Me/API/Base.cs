@@ -226,7 +226,9 @@ public class Base
 
             if (string.IsNullOrEmpty(response))
             {
-                return results;
+                // Just keep going! - PB
+                // return results;
+                continue;
             }
 
             string data = GetInnerXml(response);
