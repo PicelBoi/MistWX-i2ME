@@ -24,6 +24,7 @@ public class ClimatologyRecord : I2Record
             cliRec.RecLow = result.ParsedData.temperatureRecordMin.First();
             cliRec.RecHighYear = result.ParsedData.almanacRecordYearMax.First();
             cliRec.RecLowYear = result.ParsedData.almanacRecordYearMin.First();
+            cliRec.Year = System.DateTime.Now.Year;
             cliRec.Month = System.DateTime.Now.Month;
             cliRec.Day = System.DateTime.Now.Day;
             cliRecRes.ClimoRec = cliRec;
