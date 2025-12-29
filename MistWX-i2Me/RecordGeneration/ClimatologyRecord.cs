@@ -30,7 +30,9 @@ public class ClimatologyRecord : I2Record
 
             XmlSerializer serializer = new XmlSerializer(typeof(ClimatologyRecordResponse));
             StringWriter sw = new StringWriter();
-            serializer.Serialize(sw, cliRecRes);
+            XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
+            ns.Add("", "");
+            serializer.Serialize(sw, cliRecRes, ns);
             sw.Close();
 
             recordScript += 
