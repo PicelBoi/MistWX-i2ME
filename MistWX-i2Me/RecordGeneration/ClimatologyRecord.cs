@@ -1,3 +1,4 @@
+using System.Xml;
 using System.Xml.Serialization;
 using MistWX_i2Me.API;
 using MistWX_i2Me.Schema.ibm;
@@ -31,14 +32,19 @@ public class ClimatologyRecord : I2Record
 
             XmlSerializer serializer = new XmlSerializer(typeof(ClimatologyRecordResponse));
             StringWriter sw = new StringWriter();
+            XmlWriter xw = XmlWriter.Create(sw, new XmlWriterSettings
+            {
+                OmitXmlDeclaration = true,
+                ConformanceLevel = ConformanceLevel.Fragment, 
+            });
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
             ns.Add("", "");
-            serializer.Serialize(sw, cliRecRes, ns);
+            serializer.Serialize(xw, cliRecRes, ns);
             sw.Close();
 
             recordScript += 
                 $"<ClimatologyRecord>" +
-                $"<Key>{result.Location.cliStn}</Key>{sw.ToString()}</ClimatologyRecord>";
+                $"<Key>{result.Location.cliStn}</Key>{xw.ToString()}</ClimatologyRecord>";
         }
         
         recordScript += "</Data>";
