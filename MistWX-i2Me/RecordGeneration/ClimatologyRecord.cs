@@ -79,9 +79,7 @@ public class ClimatologyRecord : I2Record
                 OmitXmlDeclaration = true,
                 ConformanceLevel = ConformanceLevel.Fragment, 
             });
-            XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
-            serializer.Serialize(xw, cliRecRes, ns);
+            serializer.Serialize(xw, cliRecRes);
             sw.Close();
 
             recordScript += 
