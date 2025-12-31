@@ -22,9 +22,14 @@ public class HolidayMapping : I2Record
             DateTime date = DateTime.ParseExact(holiday.Date, "yyyyMMdd", provider);
             DateTime dateNew = new DateTime(DateTime.Now.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
             DateTime now = DateTime.Now;
+
+            Log.Debug($"It is currently {now.ToString()}");
+
             if (now > dateNew)
             {
+                Log.Debug($"Holiday {holiday.Name} has already past,");
                 dateNew.AddYears(1);
+                Log.Debug($"new date is {dateNew.ToString()}");
             }
 
             holiday.Date = dateNew.ToString("yyyyMMdd");
