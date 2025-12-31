@@ -1,5 +1,4 @@
 using System.Xml.Serialization;
-using System.Xml
 using MistWX_i2Me.Schema.twc;
 
 namespace MistWX_i2Me.API.Products;
