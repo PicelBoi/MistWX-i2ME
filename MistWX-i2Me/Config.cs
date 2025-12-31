@@ -389,7 +389,7 @@ public class Config
         [XmlElement] public bool PollenObservations { get; set; } = true;
         [XmlElement] public bool TropicalAdvisory { get; set; } = true;
         [XmlElement] public bool ClimatologyRecord { get; set; } = true;
-        [XmlElement] public bool DHRecord { get; set; } = true;
+        [XmlElement] public bool DHRecord { get; set; } = false;
         [XmlElement] public bool HolidayMapping { get; set; } = true;
     }
 }
