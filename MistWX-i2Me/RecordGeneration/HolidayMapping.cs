@@ -28,8 +28,11 @@ public class HolidayMapping : I2Record
             if (now > dateNew)
             {
                 Log.Debug($"Holiday {holiday.Name} has already past,");
-                dateNew.AddYears(1);
-                Log.Debug($"new date is {dateNew.ToString()}");
+                DateTime newDate = new DateTime(dateNew.Year + 1, date.Month, date.Day, date.Hour, date.Minute, date.Second);
+                Log.Debug($"new date is {newDate.ToString()}");
+                holiday.Date = newDate.ToString("yyyyMMdd");
+                holiday.DateFormatted = newDate.ToString("MM/dd/yyyy");
+                continue;
             }
 
             holiday.Date = dateNew.ToString("yyyyMMdd");
