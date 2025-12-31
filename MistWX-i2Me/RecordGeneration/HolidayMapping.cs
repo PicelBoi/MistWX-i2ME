@@ -22,7 +22,7 @@ public class HolidayMapping : I2Record
             DateTime date = DateTime.ParseExact(holiday.Date, "yyyyMMdd", provider);
             DateTime dateNew = new DateTime(DateTime.Now.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
             DateTime now = DateTime.Now;
-            if (now < dateNew)
+            if (now > dateNew)
             {
                 dateNew.AddYears(1);
             }
